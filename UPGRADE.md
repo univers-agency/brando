@@ -1,3 +1,24 @@
+## 0.46.0
+
+* Switch frontend bundler to Rollup. Commit your code, then:
+
+  ```
+  mv assets/frontend/fonts assets/frontend/static`
+  cp deps/brando/priv/templates/brando.install/assets/frontend/rollup.config.js assets/frontend`
+  cp deps/brando/priv/templates/brando.install/assets/frontend/package.json assets/frontend`
+  ```
+  Then look through the `package.json` diff and add back your own configurations.
+  ```
+  cd assets/frontend && yarn install --dev rollup rollup-plugin-copy @rollup/plugin-commonjs \
+     @rollup/plugin-replace rollup-plugin-delete rollup-plugin-postcss rollup-plugin-terser \
+     @rollup/plugin-babel @rollup/plugin-node-resolve
+  ```
+  - Remove all webpack packages from `assets/frontend/package.json`
+  - `rm assets/frontend/webpack.*`
+  - Add `~r"priv/static/css/.*(css)$",` to live_preload patterns in `config/dev.exs` to ensure
+    automatic loading of compiled CSS.
+
+
 ## 0.45.0
 
 * Switch to consistent casing in GQL files. This means that you have to go through
@@ -12,6 +33,8 @@
   since the above code will break topic strings.
 
 * BrandoJS Datasource: Moved `wrapper` to template instead.
+
+* `${CONTENT}` should be refered to as `${content}` in your template `wrapper`
 
 * Switch out all "nb" language keys to "no". Both in elixir configs and in
   Vue files (menus/locales)
