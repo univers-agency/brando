@@ -2,7 +2,7 @@ defmodule Brando.Mixfile do
   use Mix.Project
 
   @version "0.46.0-dev"
-  @description "A helping hand for Twined applications."
+  @description "Brando CMS"
 
   def project do
     [
@@ -21,7 +21,7 @@ defmodule Brando.Mixfile do
       name: "Brando",
       docs: [
         source_ref: "v#{@version}",
-        source_url: "https://github.com/univers-agency/brando"
+        source_url: "https://github.com/brandocms/brando"
       ]
     ]
   end
@@ -94,8 +94,8 @@ defmodule Brando.Mixfile do
       {:inflex, "~> 2.0"},
 
       # graphql
-      {:absinthe, "~> 1.5.0-beta"},
-      {:absinthe_plug, "~> 1.5.0-beta"},
+      {:absinthe, "~> 1.5.0"},
+      {:absinthe_plug, "~> 1.5.0"},
       {:dataloader, "~> 1.0"},
 
       # monitoring
