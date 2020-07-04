@@ -136,7 +136,7 @@ defmodule Brando.HTMLTest do
   end
 
   test "img_tag" do
-    user = Factory.insert(:user)
+    user = Factory.build(:user)
 
     assert img_tag(user.avatar, :medium) |> safe_to_string ==
              "<img src=\"images/avatars/medium/27i97a.jpeg\">"
